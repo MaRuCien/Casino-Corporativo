@@ -13,10 +13,10 @@ const PasswordRecoveryEmail = () => {
 
                 <div className="mb-3 w-50">
                     <label for="exampleInputEmail1" className="form-label">Email:</label>
-                    <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder='Ingresa tu Correo'/>
-                        <div id="emailHelp" className="form-text">Nunca compartiremos tu correo con nadie más</div>
+                    <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder='Ingresa tu Correo' />
+                    <div id="emailHelp" className="form-text">Nunca compartiremos tu correo con nadie más</div>
+                    
                 </div>
-
                 <button type="submit" className="btn btn-primary">Enviar</button>
             </form>
 
