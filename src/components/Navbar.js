@@ -1,7 +1,3 @@
-
-import Logo from './Logo/Logo.png'
-
-
 function Navbar() {
 
 

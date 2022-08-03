@@ -1,0 +1,9 @@
+.container .row nav a {
+    color: gray;
+    font-weight: bold;
+}
+.container .row nav a:hover {
+    color: black;
+    font-weight: bold;
+    text-decoration: underline;
+}
