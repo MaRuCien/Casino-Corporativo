@@ -78,7 +78,7 @@ class Admin(db.Model):
 class Menu(db.Model):
     __tablename__ = 'menu'
     id = db.Column(db.Integer, primary_key=True)
-    platillos = db.Column(dd.String(150), unique = True, nullable = False)
+    platillos = db.Column(db.String(150), unique = True, nullable = False)
     
     def serialize(self):
         return {
