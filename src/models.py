@@ -67,6 +67,7 @@ class Admin(db.Model):
     __tablename__ = 'admin'
     id = db.Column(db.Integer, primary_key=True)
     pedidos_id = db.Column(db.Integer, db.ForeignKey('pedidos.id'), unique = True, nullable = False)
+    reporte_id = db.Column(db.Integer, db.ForeignKey('reporte.id'), unique = True, nullable = True)
 
     def serialize(self):
         return {
@@ -119,3 +120,9 @@ class Usuario(db.Model):
             "direccion_id": self.direccion_id,
             # do not serialize the password, its a security breach
         }
+
+    def to_dict(self):
+        return {}
+
+## Draw from SQLAlchemy base
+render_er(db.Model, 'diagram.png')
