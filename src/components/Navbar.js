@@ -1,5 +1,5 @@
 
-import Logo from './Logo/Logo.png'
+import Logo from '../img/Logo.png'
 
 
 function Navbar() {
