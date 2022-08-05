@@ -28,6 +28,7 @@ class Reporte(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     contenido = db.Column(db.String(120), unique=False, nullable=False)
     usuario_id = db.Column(db.Integer, db.ForeignKey('usuario.id'), unique = False, nullable = False)
+    usuario = db.relationship(usuario)
     
     def serialize(self):
         return {
@@ -42,6 +43,8 @@ class Pedidos(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     menu_id = db.Column(db.Integer, db.ForeignKey('menu.id'), unique = False, nullable = False)
     usuario_id = db.Column(db.Integer, db.ForeignKey('usuario.id'), unique = False, nullable = False)
+    menu = db.relationship(Menu)
+    usuario = db.relationship(Usuario)
 
     def serialize(self):
         return {
@@ -55,6 +58,7 @@ class Entrega(db.Model):
     __tablename__ = 'entrega'
     id = db.Column(db.Integer, primary_key=True)
     pedidos_id = db.Column(db.Integer, db.ForeignKey('pedidos.id'), unique = True, nullable = False)
+    pedidos = db.relationship(Pedidos)
 
     def serialize(self):
         return {
@@ -63,18 +67,6 @@ class Entrega(db.Model):
             # do not serialize the password, its a security breach
         }
 
-class Admin(db.Model):
-    __tablename__ = 'admin'
-    id = db.Column(db.Integer, primary_key=True)
-    pedidos_id = db.Column(db.Integer, db.ForeignKey('pedidos.id'), unique = True, nullable = False)
-    reporte_id = db.Column(db.Integer, db.ForeignKey('reporte.id'), unique = True, nullable = True)
-
-    def serialize(self):
-        return {
-            "id": self.id,
-            "pedidos_id": self.pedidos_id,
-            # do not serialize the password, its a security breach
-        }
 
 class Menu(db.Model):
     __tablename__ = 'menu'
@@ -110,6 +102,8 @@ class Usuario(db.Model):
     password = db.Column(db.String(80), unique=False, nullable=False)
     empresa_id = db.Column(db.Integer, db.ForeignKey('empresa.id'), unique = False, nullable = False)
     direccion_id = db.Column(db.Integer, db.ForeignKey('direccion.id'), unique = False, nullable = False)
+    empresa = db.relationship(Empresa)
+    direccion = db.relationship(Direccion)
     
 
     def serialize(self):
