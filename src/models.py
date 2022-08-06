@@ -7,7 +7,7 @@ from sqlalchemy import create_engine
 from eralchemy import render_er
 from flask_sqlalchemy import SQLAlchemy
 
-
+#falta backref en relationships y lazy=true
 
 db = SQLAlchemy()
 
